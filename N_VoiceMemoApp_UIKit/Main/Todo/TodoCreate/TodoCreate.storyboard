@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Todo Create View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TodoCreateViewController" id="Y6W-OH-hqX" customClass="TodoCreateViewController" customModule="N_VoiceMemoApp_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtA-4M-0wT">
+                                <rect key="frame" x="30" y="164" width="147.33333333333334" height="62.333333333333343"/>
+                                <string key="text">To do list를
+추가해 보세요.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ab-KE-yDs">
+                                <rect key="frame" x="30" y="246.33333333333334" width="134" height="23.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Mzv-ng-2UD">
+                                <rect key="frame" x="0.0" y="270" width="393" height="216"/>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUq-9p-C3V">
+                                <rect key="frame" x="30" y="505.66666666666669" width="28" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="icon-on"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8월 7일 월요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In0-gu-sth">
+                                <rect key="frame" x="29.999999999999993" y="525" width="108.33333333333331" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" name="key-color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coT-KI-rIv">
+                                <rect key="frame" x="31.666666666666657" y="690" width="330" height="44"/>
+                                <color key="backgroundColor" name="key-color"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="contentEdgeInsets" minX="130" minY="10" maxX="130" maxY="10"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="생성하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="todoCreateButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iA1-Ph-UpX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="coT-KI-rIv" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1dg-QK-NtS"/>
+                            <constraint firstItem="5Ab-KE-yDs" firstAttribute="leading" secondItem="ZtA-4M-0wT" secondAttribute="leading" id="5og-bl-NkB"/>
+                            <constraint firstItem="Mzv-ng-2UD" firstAttribute="top" secondItem="5Ab-KE-yDs" secondAttribute="bottom" id="MPS-9A-lyv"/>
+                            <constraint firstItem="ZtA-4M-0wT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="P0U-kg-TSJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mzv-ng-2UD" secondAttribute="trailing" id="PAe-8L-ZCJ"/>
+                            <constraint firstItem="ZtA-4M-0wT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="46" id="PmC-2k-Q5q"/>
+                            <constraint firstItem="In0-gu-sth" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="eFU-Qc-FS3"/>
+                            <constraint firstItem="Mzv-ng-2UD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iQV-vU-C6T"/>
+                            <constraint firstItem="wUq-9p-C3V" firstAttribute="top" secondItem="Mzv-ng-2UD" secondAttribute="bottom" constant="20" id="ndn-8e-ijU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="coT-KI-rIv" secondAttribute="bottom" constant="50" id="oE2-pL-DXo"/>
+                            <constraint firstItem="5Ab-KE-yDs" firstAttribute="top" secondItem="ZtA-4M-0wT" secondAttribute="bottom" constant="20" id="tE8-st-FFg"/>
+                            <constraint firstItem="wUq-9p-C3V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="xa6-zX-nah"/>
+                            <constraint firstItem="In0-gu-sth" firstAttribute="top" secondItem="wUq-9p-C3V" secondAttribute="bottom" id="z7K-PP-90R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="In0-gu-sth" id="u5s-eg-nRU"/>
+                        <outlet property="datePicker" destination="Mzv-ng-2UD" id="c5c-lc-4N5"/>
+                        <outlet property="titleTextField" destination="5Ab-KE-yDs" id="xJ2-2a-Z4G"/>
+                        <outlet property="todoCreateButton" destination="coT-KI-rIv" id="UU4-Sv-s0w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="icon-on">
+            <color red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="key-color">
+            <color red="0.12549019607843137" green="0.80784313725490198" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
