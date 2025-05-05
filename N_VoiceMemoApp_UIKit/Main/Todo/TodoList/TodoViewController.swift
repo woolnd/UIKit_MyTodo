@@ -86,9 +86,9 @@ class TodoViewController: UIViewController {
             snapShot.appendSections([.todoList])
             snapShot.appendItems(todoViewModels, toSection: .todoList)
             dataSource.apply(snapShot) { [weak self] in
-                        // 💡 셀이 갱신되었을 때 강제로 다시 레이아웃을 트리거
-                        self?.collectionView.reloadData()
-                    }
+                // 💡 셀이 갱신되었을 때 강제로 다시 레이아웃을 트리거
+                self?.collectionView.reloadData()
+            }
         }
     }
     
@@ -107,7 +107,7 @@ class TodoViewController: UIViewController {
         cell.onToggleComplete = { [weak self] in
             guard let self = self else { return }
             let todoID = viewModel.id
-            self.viewModel.toggleComplete(id: todoID)
+            self.viewModel.process(.isCompleteToggle(todoID))
         }
         
         return cell
@@ -140,22 +140,22 @@ class TodoViewController: UIViewController {
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
         guard gesture.state == .began else { return }
-
+        
         let location = gesture.location(in: collectionView)
-
+        
         if let indexPath = collectionView.indexPathForItem(at: location) {
             let cellViewModel = viewModel.state.viewModels.todoViewModels[indexPath.row]
-
+            
             let alert = UIAlertController(title: "삭제하시겠습니까?",
                                           message: "\"\(cellViewModel.title)\" 할 일을 삭제할까요?",
                                           preferredStyle: .alert)
-
+            
             alert.addAction(UIAlertAction(title: "삭제", style: .destructive) { _ in
-                self.viewModel.deleteTodo(id: cellViewModel.id)
+                self.viewModel.process(.deleteTodo(cellViewModel.id))
                 self.viewModel.process(.loadData)
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))
-
+            
             self.present(alert, animated: true)
         }
     }

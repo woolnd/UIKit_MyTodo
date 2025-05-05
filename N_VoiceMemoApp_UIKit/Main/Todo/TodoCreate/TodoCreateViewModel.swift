@@ -35,9 +35,9 @@ final class TodoCreateViewModel: ObservableObject{
             "time": todo.time,
             "isCompleted": todo.isCompleted
         ]
-
+        
         let documentRef = db.collection("Todo").document("List")
-
+        
         documentRef.updateData([
             "todo": FieldValue.arrayUnion([todoData])
         ]) { error in
