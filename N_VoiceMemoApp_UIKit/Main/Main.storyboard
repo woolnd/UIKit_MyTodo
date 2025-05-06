@@ -309,6 +309,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Write_btn"/>
+                                        <connections>
+                                            <action selector="memoCreateButtonTapped:" destination="LXJ-8t-OpO" eventType="touchUpInside" id="ddS-IA-Z0F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -446,7 +449,6 @@
         <!--Navigation Controller-->
         <scene sceneID="k9k-Z4-bIM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4n-bC-HOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RMo-eT-WWT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Memo_Off" selectedImage="Memo_On" id="4NT-bf-eDS"/>
                     <toolbarItems/>
@@ -459,6 +461,7 @@
                         <segue destination="LXJ-8t-OpO" kind="relationship" relationship="rootViewController" id="CTK-hg-zLf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4n-bC-HOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-77.099236641221367" y="305.63380281690144"/>
         </scene>

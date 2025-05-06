@@ -33,7 +33,7 @@ class TodoCreateViewController: UIViewController {
                                                                 action: #selector(closeTapped))
         todoCreateButton.layer.cornerRadius = 10
         setTodayDateLabel()
-        setupDoneButtonOnKeyboard()
+        titleTextField.delegate = self
     }
     
     @objc func closeTapped() {
@@ -85,19 +85,11 @@ class TodoCreateViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
-    
-    private func setupDoneButtonOnKeyboard() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(doneButtonTapped))
-        
-        toolbar.items = [flexibleSpace, doneButton]
-        titleTextField.inputAccessoryView = toolbar
-    }
-    
-    @objc private func doneButtonTapped() {
-        view.endEditing(true) // 키보드 내림
+}
+
+extension TodoCreateViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleTextField.endEditing(true)
+        return true
     }
 }

@@ -69,19 +69,19 @@ extension MemoViewModel {
         Task {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KR")
-            formatter.dateFormat = "a h시 mm분" // 예: 오후 6시 40분
+            formatter.dateFormat = "yyyy년 M월 d일 (E) - a h시 mm분" // 전체 날짜+시간 포맷으로 수정
             
-            let sortedResponse = response.memo.sorted { todo1, todo2 in
+            let sortedResponse = response.memo.sorted { memo1, memo2 in
                 guard
-                    let date1 = formatter.date(from: todo1.time),
-                    let date2 = formatter.date(from: todo2.time)
+                    let date1 = formatter.date(from: memo1.date),
+                    let date2 = formatter.date(from: memo2.date)
                 else {
                     return false
                 }
                 return date1 < date2
             }
             state.viewModels.memoViewModels = sortedResponse.map{
-                MemoCellViewModel(id: $0.id, title: $0.title, content: $0.content, date: $0.date, time: $0.time)
+                MemoCellViewModel(id: $0.id, title: $0.title, content: $0.content, date: $0.date)
             }
         }
     }

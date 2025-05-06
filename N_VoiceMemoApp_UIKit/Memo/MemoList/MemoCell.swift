@@ -12,7 +12,6 @@ struct MemoCellViewModel: Hashable {
     let title: String
     let content: String
     let date: String
-    let time: String
 }
 
 
@@ -41,7 +40,7 @@ class MemoCell: UICollectionViewCell {
     
     func configure(_ viewModel: MemoCellViewModel, _ isFirst: Bool = false, _ isLast: Bool = false) {
         titleLabel.text = viewModel.title
-        dateLabel.text = "\(viewModel.date) - \(viewModel.time)"
+        dateLabel.text = viewModel.date
         
         
         // ✅ topBorder는 항상 첫 셀만

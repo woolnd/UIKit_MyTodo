@@ -115,4 +115,19 @@ class MemoViewController: UIViewController {
             subTitleLabel.alpha = 1
         }
     }
+    
+    @IBAction func memoCreateButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MemoCreate", bundle: nil)
+        guard let memoCreateVC = storyboard.instantiateViewController(withIdentifier: "MemoCreateViewController") as? MemoCreateViewController else { return }
+        
+        //TodoCreateViewController를 NavigationController로 감싸서 present 자동으로 < 뒤로가기 버튼이 생김
+        let nav = UINavigationController(rootViewController: memoCreateVC)
+        nav.modalPresentationStyle = .fullScreen
+        
+        // ✅ 콜백으로 데이터 다시 불러오기
+        memoCreateVC.onMemoCreated = { [weak self] in
+            self?.viewModel.process(.loadData)
+        }
+        self.present(nav, animated: true)
+    }
 }
