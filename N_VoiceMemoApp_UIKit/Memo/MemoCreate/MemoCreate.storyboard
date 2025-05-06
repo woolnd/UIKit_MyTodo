@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Memo Create View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MemoCreateViewController" id="Y6W-OH-hqX" customClass="MemoCreateViewController" customModule="N_VoiceMemoApp_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e3-JV-tsg">
+                                <rect key="frame" x="30" y="164" width="147.33333333333334" height="62.333333333333343"/>
+                                <string key="text">메모를
+추가해 보세요.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dN9-YV-3aU">
+                                <rect key="frame" x="30" y="246.33333333333334" width="105" height="18.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용을 입력하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WTF-qJ-2RW">
+                                <rect key="frame" x="25" y="285" width="343" height="305"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" name="gray-2"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 날짜 및 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-dX-qsw">
+                                <rect key="frame" x="30" y="610" width="110" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="icon-on"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재날짜 및 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-JT-EKX">
+                                <rect key="frame" x="30" y="630" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" name="key-color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rx4-sV-mTx">
+                                <rect key="frame" x="31.666666666666657" y="690" width="330" height="44"/>
+                                <color key="backgroundColor" name="key-color"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="130" minY="10" maxX="130" maxY="10"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="생성하기"/>
+                                <connections>
+                                    <action selector="memoCreateButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WRx-9t-jYz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WTF-qJ-2RW" secondAttribute="trailing" constant="25" id="3Yx-8O-irb"/>
+                            <constraint firstItem="LIk-dX-qsw" firstAttribute="top" secondItem="WTF-qJ-2RW" secondAttribute="bottom" constant="20" id="7rk-Ew-JPR"/>
+                            <constraint firstItem="hRj-JT-EKX" firstAttribute="top" secondItem="LIk-dX-qsw" secondAttribute="bottom" id="83u-hH-T9L"/>
+                            <constraint firstItem="Rx4-sV-mTx" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="98D-Af-zOw"/>
+                            <constraint firstItem="hRj-JT-EKX" firstAttribute="leading" secondItem="LIk-dX-qsw" secondAttribute="leading" id="9aa-h2-oCE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Rx4-sV-mTx" secondAttribute="bottom" constant="50" id="HA3-QZ-kJg"/>
+                            <constraint firstItem="8e3-JV-tsg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="JXI-tH-BAJ"/>
+                            <constraint firstItem="Rx4-sV-mTx" firstAttribute="top" secondItem="WTF-qJ-2RW" secondAttribute="bottom" constant="100" id="LHi-sH-LlX"/>
+                            <constraint firstItem="WTF-qJ-2RW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="P6M-WF-a4c"/>
+                            <constraint firstItem="LIk-dX-qsw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Q5D-6R-SBN"/>
+                            <constraint firstItem="dN9-YV-3aU" firstAttribute="top" secondItem="8e3-JV-tsg" secondAttribute="bottom" constant="20" id="WON-d2-wig"/>
+                            <constraint firstItem="dN9-YV-3aU" firstAttribute="leading" secondItem="8e3-JV-tsg" secondAttribute="leading" id="Wip-2o-CfE"/>
+                            <constraint firstItem="8e3-JV-tsg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="46" id="a5R-hw-rCT"/>
+                            <constraint firstItem="WTF-qJ-2RW" firstAttribute="top" secondItem="dN9-YV-3aU" secondAttribute="bottom" constant="20" id="bxc-tc-qqS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentTextView" destination="WTF-qJ-2RW" id="42Z-88-v2B"/>
+                        <outlet property="dateLabel" destination="hRj-JT-EKX" id="dkT-Ig-hlm"/>
+                        <outlet property="memoCreateButton" destination="Rx4-sV-mTx" id="dzl-gF-RwA"/>
+                        <outlet property="titleTextField" destination="dN9-YV-3aU" id="s37-ll-07D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="gray-2">
+            <color red="0.65490196078431373" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="icon-on">
+            <color red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="key-color">
+            <color red="0.12549019607843137" green="0.80784313725490198" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -16,7 +16,6 @@ struct memo: Codable {
     let title: String
     let content: String
     let date: String
-    let time: String
 }
 
 
