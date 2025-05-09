@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recording Create View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RecordingCreateViewController" id="Y6W-OH-hqX" customClass="RecordingCreateViewController" customModule="N_VoiceMemoApp_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91I-B4-Z6f">
+                                <rect key="frame" x="30" y="157" width="147.33333333333334" height="62.333333333333343"/>
+                                <string key="text">녹음을
+추가해 보세요.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHa-fr-Rz0">
+                                <rect key="frame" x="30" y="239.33333333333334" width="105" height="18.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bxa-Ci-9wh">
+                                <rect key="frame" x="30" y="298" width="198" height="84"/>
+                                <color key="tintColor" name="key-color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Voice_Off" title="녹음하기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="recordingButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NcR-LZ-mSX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="녹음시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAb-QW-50W">
+                                <rect key="frame" x="30.000000000000007" y="412" width="86.666666666666686" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" name="bk"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08P-MI-Ubh">
+                                <rect key="frame" x="136.66666666666666" y="412" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" name="icon-on"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 날짜 및 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t06-9o-14h">
+                                <rect key="frame" x="30.000000000000007" y="526" width="109.66666666666669" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="icon-on"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 날짜 및 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSS-Wa-Ygq">
+                                <rect key="frame" x="30" y="545" width="123" height="21.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" name="key-color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndA-47-J8F">
+                                <rect key="frame" x="31.666666666666657" y="690" width="330" height="44"/>
+                                <color key="backgroundColor" name="key-color"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="130" minY="10" maxX="130" maxY="10"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="생성하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LEC-05-6mp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS0-ke-OjD">
+                                <rect key="frame" x="278" y="321" width="76" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="초기화">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" title="초기화">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="62Y-Fr-CEM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bxa-Ci-9wh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="3Kz-Mh-o7R"/>
+                            <constraint firstItem="rAb-QW-50W" firstAttribute="leading" secondItem="Bxa-Ci-9wh" secondAttribute="leading" id="4ew-Lf-RZD"/>
+                            <constraint firstItem="08P-MI-Ubh" firstAttribute="centerY" secondItem="rAb-QW-50W" secondAttribute="centerY" id="7nU-wc-QPd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ndA-47-J8F" secondAttribute="bottom" constant="50" id="A0Y-4r-olV"/>
+                            <constraint firstItem="91I-B4-Z6f" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="39" id="DHs-RJ-cG7"/>
+                            <constraint firstItem="91I-B4-Z6f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="E8K-de-e0U"/>
+                            <constraint firstItem="08P-MI-Ubh" firstAttribute="leading" secondItem="rAb-QW-50W" secondAttribute="trailing" constant="20" id="GJj-dp-nqc"/>
+                            <constraint firstItem="t06-9o-14h" firstAttribute="leading" secondItem="rAb-QW-50W" secondAttribute="leading" id="GPp-O6-pMT"/>
+                            <constraint firstItem="rAb-QW-50W" firstAttribute="top" secondItem="Bxa-Ci-9wh" secondAttribute="bottom" constant="30" id="LDF-am-Xpj"/>
+                            <constraint firstItem="cS0-ke-OjD" firstAttribute="centerY" secondItem="Bxa-Ci-9wh" secondAttribute="centerY" id="Q0O-Yk-GxW"/>
+                            <constraint firstItem="cS0-ke-OjD" firstAttribute="leading" secondItem="Bxa-Ci-9wh" secondAttribute="trailing" constant="50" id="VWp-90-pA4"/>
+                            <constraint firstItem="rHa-fr-Rz0" firstAttribute="top" secondItem="91I-B4-Z6f" secondAttribute="bottom" constant="20" id="oKY-X9-K4N"/>
+                            <constraint firstItem="ndA-47-J8F" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="pKR-IL-tQw"/>
+                            <constraint firstItem="nSS-Wa-Ygq" firstAttribute="top" secondItem="t06-9o-14h" secondAttribute="bottom" id="qGW-XJ-0kA"/>
+                            <constraint firstItem="nSS-Wa-Ygq" firstAttribute="leading" secondItem="t06-9o-14h" secondAttribute="leading" id="qif-er-E5e"/>
+                            <constraint firstItem="rHa-fr-Rz0" firstAttribute="leading" secondItem="91I-B4-Z6f" secondAttribute="leading" id="quy-TB-9Ao"/>
+                            <constraint firstItem="Bxa-Ci-9wh" firstAttribute="top" secondItem="rHa-fr-Rz0" secondAttribute="bottom" constant="40" id="sGp-8I-2Nh"/>
+                            <constraint firstItem="t06-9o-14h" firstAttribute="top" secondItem="rAb-QW-50W" secondAttribute="bottom" constant="84" id="xLP-Pa-2yy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createButton" destination="ndA-47-J8F" id="rak-Xe-8oo"/>
+                        <outlet property="dateLabel" destination="nSS-Wa-Ygq" id="uMW-wE-P91"/>
+                        <outlet property="recordingButton" destination="Bxa-Ci-9wh" id="h4G-3i-51M"/>
+                        <outlet property="recordingTimeLabel" destination="08P-MI-Ubh" id="e6r-Oi-J24"/>
+                        <outlet property="resetButton" destination="cS0-ke-OjD" id="nE3-Xf-mVg"/>
+                        <outlet property="titleTextField" destination="rHa-fr-Rz0" id="cly-J5-0OZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Voice_Off" width="70" height="70"/>
+        <namedColor name="bk">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="icon-on">
+            <color red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="key-color">
+            <color red="0.12549019607843137" green="0.80784313725490198" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
