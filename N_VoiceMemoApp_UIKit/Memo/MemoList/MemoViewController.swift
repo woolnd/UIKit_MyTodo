@@ -38,6 +38,7 @@ class MemoViewController: UIViewController {
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         collectionView.addGestureRecognizer(longPressGesture)
+        collectionView.delegate = self
     }
     
     private func bindingViewModel() {
@@ -143,7 +144,7 @@ class MemoViewController: UIViewController {
             let cellViewModel = viewModel.state.viewModels.memoViewModels[indexPath.row]
             
             let alert = UIAlertController(title: "삭제하시겠습니까?",
-                                          message: "\"\(cellViewModel.title)\" 할 일을 삭제할까요?",
+                                          message: "\"\(cellViewModel.title)\" 메모를 삭제할까요?",
                                           preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "삭제", style: .destructive) { _ in
@@ -154,5 +155,22 @@ class MemoViewController: UIViewController {
             
             self.present(alert, animated: true)
         }
+    }
+}
+
+extension MemoViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedMemo = viewModel.state.viewModels.memoViewModels[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "MemoDetail", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: "MemoDetailViewController") as! MemoDetailViewController
+        
+        detailVC.memoTitle = selectedMemo.title
+        detailVC.memoID = selectedMemo.id
+        detailVC.memoContent = selectedMemo.content
+        detailVC.memoDate = selectedMemo.date
+        
+        present(detailVC, animated: true)
     }
 }
