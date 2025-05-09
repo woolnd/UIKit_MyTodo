@@ -1,24 +1,24 @@
 //
-//  MemoViewModel.swift
+//  RecordingViewModel.swift
 //  N_VoiceMemoApp_UIKit
 //
-//  Created by wodnd on 5/6/25.
+//  Created by wodnd on 5/10/25.
 //
 
 import Foundation
 import FirebaseFirestore
 
-final class MemoViewModel: ObservableObject{
+final class RecordingViewModel: ObservableObject {
     enum Action {
         case loadData
-        case getDataSuccess(MemoResponse)
+        case getDataSuccess(RecordingResponse)
         case getDataFailure(Error)
-        case deleteMemo(String)
+        case deleteRecording(String)
     }
     
     final class State {
         struct viewModels {
-            var memoViewModels: [MemoCellViewModel] = []
+            var recordingViewModels: [RecordingCellViewModel] = []
         }
         
         @Published var viewModels: viewModels = viewModels()
@@ -32,12 +32,11 @@ final class MemoViewModel: ObservableObject{
         case .loadData:
             loadData()
         case let .getDataSuccess(response):
-            print(response)
             transformResponse(response)
         case let .getDataFailure(error):
             print(error)
-        case let .deleteMemo(id):
-            deleteMemo(id)
+        case let .deleteRecording(id):
+            print(id)
         }
     }
     
@@ -46,15 +45,15 @@ final class MemoViewModel: ObservableObject{
     }
 }
 
-extension MemoViewModel {
+extension RecordingViewModel {
     private func loadData() {
         loadDataTask = Task{
             do {
                 let db = Firestore.firestore()
-                let docRef = db.collection("Memo").document("List")
+                let docRef = db.collection("Recording").document("List")
                 
                 let snapshot = try await docRef.getDocument()
-                guard let response = try? snapshot.data(as: MemoResponse.self)
+                guard let response = try? snapshot.data(as: RecordingResponse.self)
                 else { throw NSError(domain: "DecodingError", code: -1) }
                 
                 process(.getDataSuccess(response))
@@ -65,37 +64,37 @@ extension MemoViewModel {
         }
     }
     
-    private func transformResponse(_ response: MemoResponse){
+    private func transformResponse(_ response: RecordingResponse){
         Task {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KR")
             formatter.dateFormat = "yyyy년 M월 d일 (E) - a h시 mm분" // 전체 날짜+시간 포맷으로 수정
             
-            let sortedResponse = response.memo.sorted { memo1, memo2 in
+            let sortedResponse = response.recording.sorted { recording1, recording2 in
                 guard
-                    let date1 = formatter.date(from: memo1.date),
-                    let date2 = formatter.date(from: memo2.date)
+                    let date1 = formatter.date(from: recording1.date),
+                    let date2 = formatter.date(from: recording2.date)
                 else {
                     return false
                 }
                 return date1 < date2
             }
-            state.viewModels.memoViewModels = sortedResponse.map{
-                MemoCellViewModel(id: $0.id, title: $0.title, content: $0.content, date: $0.date)
+            state.viewModels.recordingViewModels = sortedResponse.map{
+                RecordingCellViewModel(id: $0.id, title: $0.title, time: $0.time, date: $0.date)
             }
         }
     }
     
-    func deleteMemo(_ id: String) {
+    func deleteRecording(_ id: String) {
         Task {
             let db = Firestore.firestore()
-            let docRef = db.collection("Memo").document("List")
+            let docRef = db.collection("Recording").document("List")
             
             do {
                 let snapshot = try await docRef.getDocument()
-                guard var response = try? snapshot.data(as: MemoResponse.self) else { return }
+                guard var response = try? snapshot.data(as: RecordingResponse.self) else { return }
                 
-                response.memo.removeAll { $0.id == id }
+                response.recording.removeAll { $0.id == id }
                 
                 try docRef.setData(from: response)
                 process(.loadData) // 다시 불러와서 갱신
