@@ -36,7 +36,7 @@ final class RecordingViewModel: ObservableObject {
         case let .getDataFailure(error):
             print(error)
         case let .deleteRecording(id):
-            print(id)
+            deleteRecording(id)
         }
     }
     

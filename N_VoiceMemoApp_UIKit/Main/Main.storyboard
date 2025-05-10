@@ -443,19 +443,6 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIG-41-VIU">
-                                        <rect key="frame" x="312" y="408.66666666666663" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="l7h-vc-rxh"/>
-                                            <constraint firstAttribute="width" constant="50" id="n2V-gs-0kH"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="Voice_Off"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="Voice_Off"/>
-                                        <connections>
-                                            <action selector="recordingCreateButtonTapped:" destination="k0P-PO-Zeb" eventType="touchUpInside" id="kV1-M9-eDc"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -465,20 +452,33 @@
                                     <constraint firstAttribute="trailing" secondItem="AnM-5X-oQu" secondAttribute="trailing" id="jt8-55-OKq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIG-41-VIU">
+                                <rect key="frame" x="312" y="646" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="l7h-vc-rxh"/>
+                                    <constraint firstAttribute="width" constant="50" id="n2V-gs-0kH"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="Voice_Off"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Voice_Off"/>
+                                <connections>
+                                    <action selector="recordingCreateButtonTapped:" destination="k0P-PO-Zeb" eventType="touchUpInside" id="kV1-M9-eDc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3F2-z6-QlX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3F2-z6-QlX" firstAttribute="trailing" secondItem="cIG-41-VIU" secondAttribute="trailing" constant="31" id="Hwg-Rh-Rzi"/>
                             <constraint firstItem="hPr-Wk-W2u" firstAttribute="bottom" secondItem="3F2-z6-QlX" secondAttribute="bottom" id="K4r-cG-S64"/>
                             <constraint firstItem="ej6-na-lyX" firstAttribute="top" secondItem="3F2-z6-QlX" secondAttribute="top" constant="39" id="UDx-iI-20r"/>
                             <constraint firstItem="3F2-z6-QlX" firstAttribute="leading" secondItem="hPr-Wk-W2u" secondAttribute="leading" id="UMR-KN-BTx"/>
                             <constraint firstItem="ked-z9-6SY" firstAttribute="centerY" secondItem="3F2-z6-QlX" secondAttribute="centerY" id="Ycx-OE-fHa"/>
-                            <constraint firstItem="3F2-z6-QlX" firstAttribute="trailing" secondItem="cIG-41-VIU" secondAttribute="trailing" constant="31" id="ZvM-8k-51l"/>
                             <constraint firstItem="3F2-z6-QlX" firstAttribute="trailing" secondItem="hPr-Wk-W2u" secondAttribute="trailing" id="aRp-b6-foe"/>
+                            <constraint firstItem="3F2-z6-QlX" firstAttribute="bottom" secondItem="cIG-41-VIU" secondAttribute="bottom" constant="39" id="ayk-qa-QXs"/>
                             <constraint firstItem="ked-z9-6SY" firstAttribute="centerX" secondItem="3F2-z6-QlX" secondAttribute="centerX" id="bMg-cH-n54"/>
                             <constraint firstItem="hPr-Wk-W2u" firstAttribute="top" secondItem="ej6-na-lyX" secondAttribute="bottom" constant="5" id="puU-fJ-ArH"/>
                             <constraint firstItem="ej6-na-lyX" firstAttribute="leading" secondItem="3F2-z6-QlX" secondAttribute="leading" constant="30" id="rRO-7A-jtt"/>
-                            <constraint firstItem="3F2-z6-QlX" firstAttribute="bottom" secondItem="cIG-41-VIU" secondAttribute="bottom" constant="39" id="v1a-0G-s5Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OZ4-gd-jso"/>

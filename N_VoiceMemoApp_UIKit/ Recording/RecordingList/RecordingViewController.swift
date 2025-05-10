@@ -35,8 +35,11 @@ class RecordingViewController: UIViewController {
         bindingViewModel()
         collectionView.collectionViewLayout = layout()
         viewModel.process(.loadData)
+        collectionView.delegate = self
         
-        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+        collectionView.delegate = self
     }
     
     private func bindingViewModel() {
@@ -131,6 +134,62 @@ class RecordingViewController: UIViewController {
         }
         self.present(nav, animated: true)
     }
+    
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else { return }
+        
+        let location = gesture.location(in: collectionView)
+        
+        if let indexPath = collectionView.indexPathForItem(at: location) {
+            let cellViewModel = viewModel.state.viewModels.recordingViewModels[indexPath.row]
+            
+            let alert = UIAlertController(title: "삭제하시겠습니까?",
+                                          message: "\"\(cellViewModel.title)\" 파일을 삭제할까요?",
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "삭제", style: .destructive) { _ in
+                self.viewModel.process(.deleteRecording(cellViewModel.id))
+                self.deleteAudioFile(id: cellViewModel.id)
+                self.viewModel.process(.loadData)
+            })
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+            
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func deleteAudioFile(id: String) {
+        let fileName = "\(id).m4a"
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = directory.appendingPathComponent(fileName)
+
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+                print("🗑️ 파일 삭제 완료: \(fileName)")
+            } catch {
+                print("❌ 파일 삭제 실패: \(error)")
+            }
+        } else {
+            print("⚠️ 파일 없음: \(fileName)")
+        }
+    }
 }
 
 
+
+extension RecordingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storboard = UIStoryboard(name: "RecordingDetail", bundle: nil)
+        let detailVC = storboard.instantiateViewController(withIdentifier: "RecordingDetailViewController") as! RecordingDetailViewController
+        
+        let selectedCell = viewModel.state.viewModels.recordingViewModels[indexPath.row]
+        
+        detailVC.recordingTitle = selectedCell.title
+        detailVC.id = selectedCell.id
+        detailVC.date = selectedCell.date
+        detailVC.time = selectedCell.time
+        
+        present(detailVC, animated: true)
+    }
+}
