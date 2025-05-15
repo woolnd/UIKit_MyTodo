@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -492,30 +493,142 @@
             </objects>
             <point key="canvasLocation" x="849.61832061068696" y="1021.830985915493"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="Cc0-LY-PFe">
             <objects>
-                <viewController id="KnZ-e4-qqn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerViewController" id="KnZ-e4-qqn" customClass="TimerViewController" customModule="N_VoiceMemoApp_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMg-nK-nav">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="타이머" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvG-2G-MXs">
-                                <rect key="frame" x="175" y="416" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvG-2G-MXs">
+                                <rect key="frame" x="30" y="195" width="67.666666666666671" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJn-cf-iDi">
+                                <rect key="frame" x="0.0" y="325.33333333333331" width="393" height="244.99999999999994"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="O1w-8B-v2E"/>
+                                    <constraint firstAttribute="width" constant="393" id="mwP-S9-5V1"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUz-Q5-ZER">
+                                <rect key="frame" x="165" y="591.33333333333337" width="63" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="설정하기">
+                                    <color key="titleColor" name="key-color"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="KnZ-e4-qqn" eventType="touchUpInside" id="hZb-8M-U2X"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-Pn-m3d">
+                                <rect key="frame" x="0.0" y="325.33333333333331" width="393" height="244.99999999999994"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU1-5Y-gQ3">
+                                        <rect key="frame" x="125.66666666666667" y="105.66666666666669" width="141.66666666666663" height="33.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" name="icon-on"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLw-hQ-LHs">
+                                        <rect key="frame" x="166.66666666666666" y="154.33333333333337" width="60" height="15"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="597-ix-9cA">
+                                                <rect key="frame" x="0.0" y="0.33333333333333215" width="15" height="14.333333333333334"/>
+                                                <color key="tintColor" name="icon-on"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="Qt0-F2-O4J"/>
+                                                    <constraint firstAttribute="height" constant="15" id="mzm-6Y-ccD"/>
+                                                </constraints>
+                                                <imageReference key="image" image="bell.fill" catalog="system" renderingMode="template"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc9-NS-ggK">
+                                                <rect key="frame" x="15" y="0.0" width="45" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" name="icon-on"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="BU1-5Y-gQ3" firstAttribute="centerY" secondItem="KA8-Pn-m3d" secondAttribute="centerY" id="DZk-89-RgV"/>
+                                    <constraint firstAttribute="height" constant="244.99999999999994" id="Rm7-uu-XoG"/>
+                                    <constraint firstItem="BU1-5Y-gQ3" firstAttribute="centerX" secondItem="KA8-Pn-m3d" secondAttribute="centerX" id="faz-Si-LXp"/>
+                                    <constraint firstAttribute="width" constant="393" id="hrX-ly-Rdv"/>
+                                    <constraint firstItem="QLw-hQ-LHs" firstAttribute="centerX" secondItem="KA8-Pn-m3d" secondAttribute="centerX" id="rag-fi-n9y"/>
+                                    <constraint firstItem="QLw-hQ-LHs" firstAttribute="top" secondItem="BU1-5Y-gQ3" secondAttribute="bottom" constant="15" id="uIS-oh-fSa"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3R-pP-TFD">
+                                <rect key="frame" x="35" y="616" width="70" height="68.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="630-j3-E8X"/>
+                                    <constraint firstAttribute="width" constant="70" id="OAN-bT-8P5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" name="gray-1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="취소" backgroundImage="circle.fill" catalog="system">
+                                    <color key="titleColor" name="icon-on"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="KnZ-e4-qqn" eventType="touchUpInside" id="yTg-M4-Lx8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvA-3l-jgz">
+                                <rect key="frame" x="288" y="616" width="70" height="68.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="FLk-H5-bkp"/>
+                                    <constraint firstAttribute="width" constant="70" id="gka-fJ-WlI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" name="key-color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="일시정지" backgroundImage="circle.fill" catalog="system">
+                                    <color key="titleColor" name="icon-on"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="KnZ-e4-qqn" eventType="touchUpInside" id="F1b-jx-74B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1KF-3N-yUw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1KF-3N-yUw" firstAttribute="trailing" secondItem="WvA-3l-jgz" secondAttribute="trailing" constant="35" id="7HB-cU-2gc"/>
+                            <constraint firstItem="NJn-cf-iDi" firstAttribute="centerX" secondItem="1KF-3N-yUw" secondAttribute="centerX" id="CzT-9w-3SR"/>
+                            <constraint firstItem="OvG-2G-MXs" firstAttribute="leading" secondItem="1KF-3N-yUw" secondAttribute="leading" constant="30" id="G7J-eW-TMd"/>
+                            <constraint firstItem="OvG-2G-MXs" firstAttribute="top" secondItem="1KF-3N-yUw" secondAttribute="top" constant="77" id="IKL-uU-pWW"/>
+                            <constraint firstItem="JUz-Q5-ZER" firstAttribute="top" secondItem="OvG-2G-MXs" secondAttribute="bottom" constant="365" id="S73-OQ-CCI"/>
+                            <constraint firstItem="T3R-pP-TFD" firstAttribute="top" secondItem="KA8-Pn-m3d" secondAttribute="bottom" constant="45" id="Slj-9S-8wJ"/>
+                            <constraint firstItem="KA8-Pn-m3d" firstAttribute="centerX" secondItem="1KF-3N-yUw" secondAttribute="centerX" id="bkv-bk-lCX"/>
+                            <constraint firstItem="WvA-3l-jgz" firstAttribute="top" secondItem="KA8-Pn-m3d" secondAttribute="bottom" constant="45" id="k6z-p3-F44"/>
+                            <constraint firstItem="JUz-Q5-ZER" firstAttribute="centerX" secondItem="1KF-3N-yUw" secondAttribute="centerX" id="kbp-Bz-TgW"/>
+                            <constraint firstItem="NJn-cf-iDi" firstAttribute="top" secondItem="OvG-2G-MXs" secondAttribute="bottom" constant="99" id="keQ-rJ-JBP"/>
+                            <constraint firstItem="T3R-pP-TFD" firstAttribute="leading" secondItem="1KF-3N-yUw" secondAttribute="leading" constant="35" id="kp7-Wu-Ng7"/>
+                            <constraint firstItem="KA8-Pn-m3d" firstAttribute="top" secondItem="OvG-2G-MXs" secondAttribute="bottom" constant="99" id="wwT-8Q-PT2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Alarm_Off" selectedImage="Alarm_On" id="1XH-I0-nHF"/>
+                    <connections>
+                        <outlet property="EndTimeLabel" destination="Cc9-NS-ggK" id="YCF-YZ-E0V"/>
+                        <outlet property="cancelButton" destination="T3R-pP-TFD" id="Pi6-b6-0nj"/>
+                        <outlet property="startButton" destination="JUz-Q5-ZER" id="7Fl-Us-pt2"/>
+                        <outlet property="stopButton" destination="WvA-3l-jgz" id="rIa-Bi-n9N"/>
+                        <outlet property="timePicker" destination="NJn-cf-iDi" id="h45-p9-0uc"/>
+                        <outlet property="timerLabel" destination="BU1-5Y-gQ3" id="VzH-8b-Awr"/>
+                        <outlet property="timerView" destination="KA8-Pn-m3d" id="3Rv-8u-0wU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8p-DR-wxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="1765"/>
+            <point key="canvasLocation" x="-77.099236641221367" y="1764.7887323943662"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fcz-XU-6dg">
@@ -615,11 +728,19 @@
         <image name="VoiceIcon_On" width="50" height="50"/>
         <image name="Voice_Off" width="70" height="70"/>
         <image name="Write_btn" width="50" height="50"/>
+        <image name="bell.fill" catalog="system" width="123" height="128"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="gray-1">
+            <color red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="gray-2">
             <color red="0.65490196078431373" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="icon-on">
             <color red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="key-color">
+            <color red="0.12549019607843137" green="0.80784313725490198" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
