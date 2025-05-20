@@ -1,4 +1,5 @@
 # [UIKit] 나만의 Todo
+<img width="300" alt="스크린샷 2025-05-19 오후 3 48 32" src="https://github.com/user-attachments/assets/16c05d73-49b7-4463-b868-6067a1ed77a9" />
 
 > UIKit으로 구현한 나만의 Todo 앱 기록 저장소입니다.
 
@@ -20,6 +21,7 @@
 
 ## ✍️ 기록 방식
 - 기능별 구현 리뷰는 블로그 포스팅을 통해 상세히 작성합니다.
+  👉 [https://riu-dev.tistory.com/category/iOS%20개발/UIKit](https://riu-dev.tistory.com/category/iOS%20개발/UIKit)
 
 ---
 
